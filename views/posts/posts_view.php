@@ -3,15 +3,11 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<?php foreach($posts as $post):?> 
-
 <div class="span8">
     <h1><?php echo $post['post_subject']?></h1>
+    <h3><?php echo $post['username']?></h3>
     <p><?php echo $post['post_text']?></p>
-    <a href="<?php echo BASE_URL.'posts/view/'.$post['post_id']?>">Loe veel</a>
     <div>
         <span class="badge badge-success"><?php echo $post['post_created']?></span>
     </div> 
 </div>
-
-<?php endforeach?>
