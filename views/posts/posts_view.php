@@ -9,5 +9,6 @@
     <p><?php echo $post['post_text']?></p>
     <div>
         <span class="badge badge-success"><?php echo $post['post_created']?></span>
-    </div> 
+    </div>
+    <?foreach ($tags as $tag):?><a href="#"><span class=""label label-info"><?=$tag['tag_name']?></span></a><?endforeach?>
 </div>
