@@ -2,9 +2,9 @@
 
 // Local configuration
 define('DATABASE_HOSTNAME', '127.0.0.1');
-define('DATABASE_USERNAME', 'root');
-define('DATABASE_PASSWORD', 'qwerty');
-define('DATABASE_DATABASE', 'halo');
+define('DATABASE_USERNAME', 'ilveshendrikiktk');
+define('DATABASE_PASSWORD', 'f.Xg2L(J7Rni');
+define('DATABASE_DATABASE', 'ilveshen_halo');
 define('SMTP_AUTH_PASSWORD', '');
 define('SMTP_AUTH_USERNAME', '');
 define('SMTP_AUTH', false);

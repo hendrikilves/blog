@@ -6,17 +6,14 @@
  * Time: 9:58
  */
 
-foreach($tags as $tag):?>
-
-    <div class="span8">
-        <h1><?php echo $tag['tag_name']?></h1>
+foreach ($tags as $tag):?>
+    <div class="list-group">
+  <a href="<?=BASE_URL?>tags/view/<?=$tag['tag_id']?>" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">
+          <?=$tag['tag_name']?>
+      </h5>
     </div>
-
-<?php endforeach?>
-<?php
-/*
-$_tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag");
-foreach ($_tags as $tag) {
-$this->tags[$tag['post_id']][] = $tag['tag_name'];
-}*/
-?>
+        </a>
+    </div>
+<?php endforeach ?>

@@ -13,6 +13,7 @@ class posts extends Controller
     {
 
         $this->posts = get_all("SELECT * FROM post");
+        $this->tags = get_all("SELECT tag_name,tag_id, COUNT(post_id) AS count FROM post_tags NATURAL JOIN tag GROUP BY tag_id");
     }
 
 
@@ -59,4 +60,6 @@ class posts extends Controller
         $this->post = get_first("SELECT * FROM post NATURAL JOIN users WHERE post_id='$post_id'");
         $this->tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag WHERE post_id='$post_id'");
     }
+
+
 }
