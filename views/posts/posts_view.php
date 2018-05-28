@@ -11,4 +11,21 @@
         <span class="badge badge-success"><?php echo $post['post_created']?></span>
     </div>
     <?foreach ($tags as $tag):?><a href="#"><span class=""label label-info"><?=$tag['tag_name']?></span></a><?endforeach?>
+    
+        <hr>
+        <h4>Kommentaarid</h4>
+        <?foreach ($comments as $comment):?>
+        	<div class="head">
+        	<small><strong class='user'><?=$comment['comment_created']?></strong></small>
+        	</div>    
+        	<p>
+        	    <?=$comment['comment_body']?>
+        	</p>
+	    <?endforeach?>
+    	
+    	<hr>
+	    <form method="post" action="/veeb/blog2/posts/view/<?=$post['post_id']?>">
+	        <textarea required name="comment_body" class="form-control" placeholder="Sheeri, laigi, kommenteeri!"></textarea><br/>
+	        <button class="btn btn-primary">Saada</button>
+	    </form>
 </div>

@@ -56,9 +56,22 @@ class posts extends Controller
 
     function view()
     {
-        $post_id = $this->params[0];
-        $this->post = get_first("SELECT * FROM post NATURAL JOIN users WHERE post_id='$post_id'");
-        $this->tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag WHERE post_id='$post_id'");
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            $post_id = $this->params[0];
+            $comment_body = $_POST['comment_body'];
+
+            insert('post_comments', ['comment_body' => $comment_body, 'post_id' => $post_id]);
+
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        }
+        else
+        {
+            $post_id = $this->params[0];
+            $this->post = get_first("SELECT * FROM post NATURAL JOIN users WHERE post_id='$post_id'");
+            $this->tags = get_all("SELECT * FROM post_tags NATURAL JOIN tag WHERE post_id='$post_id'");
+            $this->comments = get_all("SELECT * FROM `post_comments` WHERE post_id='$post_id'");
+        }
     }
 
 
